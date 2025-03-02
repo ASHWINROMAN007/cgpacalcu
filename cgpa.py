@@ -15,7 +15,7 @@ def main():
     st.markdown(
         """
         <style>
-        .stApp { background-color: lavender; }
+        .stApp { background-color: red; }
         .stMarkdown, .stButton, .stNumberInput, h1, h2, h3, h4, h5, h6, p, label, .title { color: black !important; }
         div[data-baseweb="input"] > input { color: black !important; }
         .stButton > button { 
