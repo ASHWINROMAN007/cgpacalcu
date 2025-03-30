@@ -44,7 +44,8 @@ def main():
         .good-cgpa { color: green !important; font-weight: bold; }
         .low-average { color: red !important; font-weight: bold; }
         .good-average { color: green !important; font-weight: bold; }
-        .cutoff-result { color: navy !important; font-weight: bold; }
+        .low-result { color: red !important; font-weight: bold; }
+        .high-result{color: green !important; font-weight: bold;}
         </style>
         """,
         unsafe_allow_html=True
@@ -93,8 +94,10 @@ def main():
 
     if st.button("Calculate Cutoff"):
         cutoff = calculate_cutoff(maths_marks, physics_marks, chemistry_marks)
-        st.markdown(f"<p class='cutoff-result'>Your Maths Cutoff is: {cutoff:.2f}</p>", unsafe_allow_html=True)
-
+        if cutoff>180:
+            st.markdown(f"<p class='high-result'>Your Maths Cutoff is: {cutoff:.2f}</p>", unsafe_allow_html=True)
+        else:
+            st.markdown(f"<p class='low-result'>Your Maths Cutoff is: {cutoff:.2f}</p>", unsafe_allow_html=True)
 # Run the app
 if __name__ == "__main__":
     main()
