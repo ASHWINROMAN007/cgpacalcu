@@ -7,9 +7,16 @@ def calculate_cgpa(gpas):
     total_gpa = sum(gpas)
     return total_gpa / len(gpas)
 
+# Function to calculate average marks
+def calculate_average(marks):
+    if not marks:
+        return 0.0
+    total_marks = sum(marks)
+    return total_marks / len(marks)
+
 # Main function to run the Streamlit app
 def main():
-    st.set_page_config(page_title="CGPA Calculator", page_icon="🎓")
+    st.set_page_config(page_title="CGPA and Marks Average Calculator", page_icon="🎓")
 
     # Custom Styling
     st.markdown(
@@ -37,26 +44,36 @@ def main():
     )
 
     # Title
-    st.markdown("<h1 class='title'>CGPA Calculator</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 class='title'>CGPA and Marks Average Calculator</h1>", unsafe_allow_html=True)
 
-    # Input for number of semesters
+    # CGPA Calculation Section
+    st.subheader("Calculate CGPA")
     semester_count = st.number_input("Enter the number of semesters completed", min_value=1, step=1)
 
-    # List to store GPA values
     gpas = []
-    
-    # Getting GPA inputs for each semester
     for i in range(int(semester_count)):
         gpa = st.number_input(f"Enter GPA for Semester {i+1}", min_value=0.0, max_value=10.0, step=0.01)
         gpas.append(gpa)
 
-    # Button to calculate CGPA
     if st.button("Calculate CGPA"):
         cgpa = calculate_cgpa(gpas)
         if cgpa < 8.0:
             st.markdown(f"<p class='low-cgpa'>Your CGPA is {cgpa:.2f}</p>", unsafe_allow_html=True)
         else:
             st.markdown(f"<p class='good-cgpa'>Your CGPA is {cgpa:.2f}</p>", unsafe_allow_html=True)
+
+    # Average Marks Calculation Section
+    st.subheader("Calculate Average Marks")
+    subject_count = st.number_input("Enter the number of subjects", min_value=1, step=1)
+
+    marks = []
+    for i in range(int(subject_count)):
+        mark = st.number_input(f"Enter marks for Subject {i+1}", min_value=0.0, max_value=100.0, step=0.01)
+        marks.append(mark)
+
+    if st.button("Calculate Average Marks"):
+        average_marks = calculate_average(marks)
+        st.markdown(f"<p>Your Average Marks are: {average_marks:.2f}</p>", unsafe_allow_html=True)
 
 # Run the app
 if __name__ == "__main__":
