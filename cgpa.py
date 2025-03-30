@@ -16,7 +16,7 @@ def calculate_average(marks):
 
 # Function to calculate Maths cutoff
 def calculate_cutoff(maths, physics, chemistry):
-    return (maths / 2) + (physics / 4) + (chemistry / 4)
+    return (maths ) + (physics / 2) + (chemistry / 2)
 
 # Main function to run the Streamlit app
 def main():
