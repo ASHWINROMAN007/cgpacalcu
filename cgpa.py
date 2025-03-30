@@ -38,6 +38,8 @@ def main():
         }
         .low-cgpa { color: red !important; font-weight: bold; }
         .good-cgpa { color: green !important; font-weight: bold; }
+        .low-average { color: red !important; font-weight: bold; }
+        .good-average { color: green !important; font-weight: bold; }
         </style>
         """,
         unsafe_allow_html=True
@@ -73,7 +75,10 @@ def main():
 
     if st.button("Calculate Average Marks"):
         average_marks = calculate_average(marks)
-        st.markdown(f"<p>Your Average Marks are: {average_marks:.2f}</p>", unsafe_allow_html=True)
+        if average_marks > 80:
+            st.markdown(f"<p class='good-average'>Your Average Marks are: {average_marks:.2f}</p>", unsafe_allow_html=True)
+        else:
+            st.markdown(f"<p class='low-average'>Your Average Marks are: {average_marks:.2f}</p>", unsafe_allow_html=True)
 
 # Run the app
 if __name__ == "__main__":
