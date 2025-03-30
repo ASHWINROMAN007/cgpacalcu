@@ -14,9 +14,13 @@ def calculate_average(marks):
     total_marks = sum(marks)
     return total_marks / len(marks)
 
+# Function to calculate Maths cutoff
+def calculate_cutoff(maths, physics, chemistry):
+    return (maths / 2) + (physics / 4) + (chemistry / 4)
+
 # Main function to run the Streamlit app
 def main():
-    st.set_page_config(page_title="CGPA and Marks Average Calculator", page_icon="🎓")
+    st.set_page_config(page_title="CGPA, Marks Average, and Maths Cutoff Calculator", page_icon="🎓")
 
     # Custom Styling
     st.markdown(
@@ -40,13 +44,14 @@ def main():
         .good-cgpa { color: green !important; font-weight: bold; }
         .low-average { color: red !important; font-weight: bold; }
         .good-average { color: green !important; font-weight: bold; }
+        .cutoff-result { color: navy !important; font-weight: bold; }
         </style>
         """,
         unsafe_allow_html=True
     )
 
     # Title
-    st.markdown("<h1 class='title'>CGPA and Marks Average Calculator</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 class='title'>CGPA, Marks Average, and Maths Cutoff Calculator</h1>", unsafe_allow_html=True)
 
     # CGPA Calculation Section
     st.subheader("Calculate CGPA")
@@ -79,6 +84,16 @@ def main():
             st.markdown(f"<p class='good-average'>Your Average Marks are: {average_marks:.2f}</p>", unsafe_allow_html=True)
         else:
             st.markdown(f"<p class='low-average'>Your Average Marks are: {average_marks:.2f}</p>", unsafe_allow_html=True)
+
+    # Maths Cutoff Calculation Section
+    st.subheader("Calculate Maths Cutoff")
+    maths_marks = st.number_input("Enter your Maths marks", min_value=0.0, max_value=100.0, step=0.01)
+    physics_marks = st.number_input("Enter your Physics marks", min_value=0.0, max_value=100.0, step=0.01)
+    chemistry_marks = st.number_input("Enter your Chemistry marks", min_value=0.0, max_value=100.0, step=0.01)
+
+    if st.button("Calculate Cutoff"):
+        cutoff = calculate_cutoff(maths_marks, physics_marks, chemistry_marks)
+        st.markdown(f"<p class='cutoff-result'>Your Maths Cutoff is: {cutoff:.2f}</p>", unsafe_allow_html=True)
 
 # Run the app
 if __name__ == "__main__":
