@@ -7,7 +7,7 @@ def calculate_cgpa(gpas):
     total_gpa = sum(gpas)
     return total_gpa / len(gpas)
 
-# Function to calculate average marks
+# Function to calculate average marks 
 def calculate_average(marks):
     if not marks:
         return 0.0
