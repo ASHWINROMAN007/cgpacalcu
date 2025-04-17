@@ -51,7 +51,7 @@ def main():
     )
 
     # Title
-    st.markdown("<h1 class='title'>CGPA, Marks Average, and Maths Cutoff Calculator</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 class='title'>CGPA, Marks Average, and Engineering Cutoff Calculator</h1>", unsafe_allow_html=True)
 
     # CGPA Calculation Section
     st.subheader("Calculate CGPA")
