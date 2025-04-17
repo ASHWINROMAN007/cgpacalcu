@@ -20,7 +20,7 @@ def calculate_cutoff(maths, physics, chemistry):
 
 # Main function to run the Streamlit app
 def main():
-    st.set_page_config(page_title="CGPA, Marks Average, and Maths Cutoff Calculator", page_icon="🎓")
+    st.set_page_config(page_title="CGPA, Marks Average, and Engineering Cutoff Calculator", page_icon="🎓")
 
     # Custom Styling
     st.markdown(
@@ -87,7 +87,7 @@ def main():
             st.markdown(f"<p class='low-average'>Your Average Marks are: {average_marks:.2f}</p>", unsafe_allow_html=True)
 
     # Maths Cutoff Calculation Section
-    st.subheader("Calculate Maths Cutoff")
+    st.subheader("Calculate Engineering Cutoff")
     maths_marks = st.number_input("Enter your Maths marks", min_value=0.0, max_value=100.0, step=0.01)
     physics_marks = st.number_input("Enter your Physics marks", min_value=0.0, max_value=100.0, step=0.01)
     chemistry_marks = st.number_input("Enter your Chemistry marks", min_value=0.0, max_value=100.0, step=0.01)
