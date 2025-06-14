@@ -19,6 +19,7 @@ def calculate_cutoff(maths, physics, chemistry):
 
 # Main function to run the Streamlit app
 def main():
+    
     st.set_page_config(page_title="CGPA, Marks Average, and Engineering Cutoff Calculator", page_icon="🎓")
 
     # Custom Styling
